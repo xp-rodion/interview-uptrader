@@ -10,11 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import environ
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+env = environ.Env()
+environ.Env.read_env(env_file='.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -25,7 +28,7 @@ SECRET_KEY = '6d6-g8+ppvm&(sdlwi#w-&a*z)gythfg3ebtvtr__^(lk7-7*t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,9 +79,13 @@ WSGI_APPLICATION = 'menu.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env('POSTGRES_DB'),
+        "USER": env('POSTGRES_USER'),
+        "PASSWORD": env('POSTGRES_PASSWORD'),
+        "HOST": env('POSTGRES_HOST'),
+        "PORT": env('POSTGRES_PORT'),
     }
 }
 

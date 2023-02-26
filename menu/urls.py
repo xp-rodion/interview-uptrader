@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from treemenu.views import MenuView, ItemMenuView
 
+from treemenu.views import ItemMenuView, MenuView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

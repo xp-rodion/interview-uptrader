@@ -1,4 +1,5 @@
 from django import template
+
 from treemenu.models import Menu
 
 register = template.Library()
