@@ -31,3 +31,7 @@ $ git clone https://github.com/xp-rodion/interview-uptrader
       ```console
       $ docker-compose up -d --build
       ```
+      
+## Description
+All actions are normal in django-admin. adding, binding menus and menu items, unlimited nesting, if there is a binding for the parent, you do not need to bind to the menu.
+
