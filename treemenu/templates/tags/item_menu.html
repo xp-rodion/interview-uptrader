@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for item in item_menu %}
+        <div style="padding: 7px;">
+            - <a href={{ item.get_url }}> {{ item.title }} </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+

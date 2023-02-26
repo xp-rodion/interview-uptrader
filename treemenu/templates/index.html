@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load draw_menu %}
+
+{% block head %}
+    <title>{{ title }}</title>
+{% endblock %}
+{% block content %}
+    {% if req_item %}
+        {% draw_menu 'menu' req_item %}
+    {% else %}
+        {% draw_menu 'menu'%}
+    {% endif %}
+{% endblock %}

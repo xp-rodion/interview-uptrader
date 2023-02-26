@@ -1,0 +1,5 @@
+.idea
+__pycache__/
+treemenu/__pycache__
+menu/__pycache__
+db.sqlite3

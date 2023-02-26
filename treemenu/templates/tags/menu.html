@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load draw_item_menu %}
+
+{% block content %}
+    <a href={% url 'menu' %}> {{ menu.title }} </a>
+    {% if req_item %}
+        {% draw_item_menu req_item %}
+    {% else %}
+        {% for item in menu.item_menu.all %}
+            <div style="padding: 7px;">
+                - <a href={{ item.get_url }}> {{ item.title }} </a>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
